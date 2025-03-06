@@ -1,0 +1,144 @@
+---
+import DigitalClock from "../components/DigitalClock";
+import Layout from "../layouts/Layout.astro";
+import Photo from "../components/Photo.astro";
+import LineDisplay from "../components/LineDisplay.astro";
+import LinkDisplay from "../components/LinkDisplay.astro";
+import Frame from "../components/Frame.astro";
+import FrameWithTitle from "../components/FrameWithTitle.astro";
+---
+
+<Layout>
+	<div id="watch-view">
+		<div id="watch-content">
+			<div class="watch-section" id="section-1">
+				<div class="watch-subsection" id="subsection-1-1">
+					<DigitalClock center client:load />
+					<Photo
+						photos={[
+							{
+								src: "/dumb-cat.jpg",
+								alt: "funny cat",
+							},
+							{
+								src: "/johan-face.jpg",
+								alt: "my face",
+							},
+						]}
+					/>
+				</div>
+				<div class="watch-subsection" id="subsection-1-2">
+					<Frame>
+						<div class="paragraph">
+							<LineDisplay text="Name: Johan E." font="JetBrains Mono Semibold"/>
+							<LineDisplay text="Aka: KingBCats" font="JetBrains Mono Semibold"/>
+							<LineDisplay text="Birth: October 1st, 2008" font="JetBrains Mono Semibold"/>
+							<LineDisplay text="Age: 16yo" font="JetBrains Mono Semibold"/>
+							<LineDisplay text="Country: Mexico" font="JetBrains Mono Semibold"/>
+						</div>
+						<div class="paragraph">
+							<LineDisplay text="I started programming using BDFD, then Aoi.js and some time later I used Discord.js and since then (3 years ago), I have been using JS and TS." font="JetBrains Mono Semibold"/>
+						</div>
+					</Frame>
+				</div>
+			</div>
+			<div class="watch-section" id="section-2">
+				<FrameWithTitle title="Knowledges:">
+					<LineDisplay text=" - I know the languages TS, JS and a little bit of c++ thanks to arduino."font="JetBrains Mono Semibold"/>
+					<LineDisplay text="- I have used Vue, Astro, React (Vite) and Angular."font="JetBrains Mono Semibold"/>
+				</FrameWithTitle>
+				<FrameWithTitle title="Links:">
+					<LinkDisplay text="Github (Personal)" font="JetBrains Mono Semibold" href="https://github.com/KingsBeCattz?tab=repositories"/>
+					<LinkDisplay text="NPM (Personal)" font="JetBrains Mono Semibold" href="https://www.npmjs.com/~kingbecats"/>
+					<LinkDisplay text="Github (Vimn)" font="JetBrains Mono Semibold" href="https://github.com/orgs/VimnLabs/repositories"/>
+					<LinkDisplay text="Github (Kodeko)" font="JetBrains Mono Semibold" href="https://github.com/orgs/KodekoStudios/repositories"/>
+					<LinkDisplay text="UnCMD (Vimn)" font="JetBrains Mono Semibold" href="https://vimnlabs.github.io/uncmd/"/>
+					<LinkDisplay text="EzDB (Vimn)" font="JetBrains Mono Semibold" href="https://vimnlabs.github.io/ezdb/"/>
+				</FrameWithTitle>
+			</div>
+		</div>
+	</div>
+</Layout>
+
+<style>
+	:root {
+		--watch-size: 750px;
+	}
+
+	#watch-view {
+		aspect-ratio: 1;
+		width: var(--watch-size);
+		height: var(--watch-size);
+		border-radius: 50px;
+		border: 1px solid var(--line-color-1);
+		margin: auto auto;
+		box-sizing: border-box;
+		padding: 40px;
+	}
+
+	#watch-content {
+		box-sizing: border-box;
+		border: 1px solid var(--line-color-1);
+		padding: 15px;
+		border-radius: 10px;
+		height: 100%;
+		background-color: var(--secondary-background-color);
+		display: grid;
+		grid-template-rows: 1fr 1fr;
+	}
+
+	.watch-subsection {
+		height: 100%;
+	}
+
+	.watch-section {
+		width: 100%
+	}
+
+	#info.watch-section-content {
+		background-color: var(--monochromatic-green);
+		border: 1px solid var(--line-color-1);
+		padding: 10px;
+		height: 100%;
+		box-sizing: border-box;
+		font-family: "DSEG14C", Arial, Helvetica, sans-serif;
+		color: black;
+		display: grid;
+		gap: 1ch
+	}
+
+	#section-2 {
+		display: grid;
+		gap: 1ch;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.frame {
+		border: 1px solid var(--line-color-1);
+		padding: 10px;
+		box-sizing: border-box;
+		background-color: var(--primary-background-color);
+	}
+
+	.monochromatic {
+		border: 1px solid var(--line-color-1);
+		padding: 10px;
+		box-sizing: border-box;
+		background-color: var(--monochromatic-green);
+	}
+
+	.watch-section {
+		padding: 15px;
+		display: grid;
+		gap: 20px;
+		align-items: center;
+	}
+
+	.watch-section:nth-child(1) {
+		grid-template-columns: 0.5fr 1fr;
+	}
+
+	.watch-subsection {
+		display: grid;
+	}
+</style>

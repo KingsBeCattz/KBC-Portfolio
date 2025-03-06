@@ -1,0 +1,47 @@
+---
+import Frame from "./Frame.astro";
+import LineDisplay from "./LineDisplay.astro";
+
+interface Props {
+  title: string
+}
+
+const {title} = Astro.props
+---
+
+<div class=`frame-with-title`>
+  <div class="frame-title">
+    <LineDisplay text={title} font="JetBrains Mono Semibold"/>
+  </div>
+  <div class="frame-with-title-content">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .frame-with-title {
+		border: 1px solid var(--line-color-1);
+		padding: 10px;
+		box-sizing: border-box;
+		background-color: var(--primary-background-color);
+    display: grid;
+    gap: 1ch;
+    height: 100%;
+    grid-template-rows: auto 1fr;
+	}
+
+  .frame-title {
+    height: fit-content
+  }
+
+  .frame-with-title-content {
+    height: 100%
+  }
+
+  .frame-with-title-content, .frame-title {
+		border: 1px solid var(--line-color-1);
+		box-sizing: border-box;
+		background-color: var(--monochromatic-green);
+		padding: 10px;
+  }
+</style>

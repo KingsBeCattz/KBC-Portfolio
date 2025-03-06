@@ -1,0 +1,30 @@
+---
+interface Props {
+  class?: string
+}
+
+const {class: classes} = Astro.props
+---
+
+<div class=`frame ${classes}`>
+  <div class="frame-content">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .frame {
+		border: 1px solid var(--line-color-1);
+		padding: 10px;
+		box-sizing: border-box;
+		background-color: var(--primary-background-color);
+	}
+
+  .frame-content {
+		border: 1px solid var(--line-color-1);
+		box-sizing: border-box;
+		background-color: var(--monochromatic-green);
+    height: 100%;
+		padding: 10px;
+  }
+</style>

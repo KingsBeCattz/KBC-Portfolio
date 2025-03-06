@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/dumb-cat.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>KingBCats</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	@import url("https://necolas.github.io/normalize.css/8.0.1/normalize.css");
+	@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,600;1,600&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+
+	:root {
+		--primary-background-color: #000;
+		--secondary-background-color: #09090980;
+		--monochromatic-green: #858777;
+
+		--line-color-1: #353841;
+	}
+
+	html,
+	body {
+		background-color: var(--primary-background-color);
+		color: black;
+		height: 100%;
+		width: 100%;
+		display: flex;
+		align-items: center;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	@font-face {
+		font-family: "DSEG14C";
+		src:
+			url("/fonts/DSEG14Classic-Regular.woff2") format("woff2"),
+			url("/assets/fonts/DSEG14Classic-Regular.woff") format("woff");
+		font-weight: normal;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: "DSEG14ML";
+		src:
+			url("/fonts/DSEG14Modern-Light.woff2") format("woff2"),
+			url("/assets/fonts/DSEG14Modern-Light.woff") format("woff");
+		font-weight:lighter;
+		font-style: normal;
+	}
+
+	@font-face {
+		font-family: "DSEG7C";
+		src:
+			url("/fonts/DSEG7Classic-Regular.woff2") format("woff2"),
+			url("/assets/fonts/DSEG7Classic-Regular.woff") format("woff");
+		font-weight: normal;
+		font-style: normal;
+	}
+</style>

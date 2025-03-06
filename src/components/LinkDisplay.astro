@@ -1,0 +1,36 @@
+---
+interface Props {
+  text: string,
+  font: "JetBrains Mono Semibold" | "DSEG7C" | "DSEG14C",
+  href: string,
+  target?: astroHTML.JSX.HTMLAttributeAnchorTarget | null
+}
+
+const { text, font, href, target } = Astro.props
+---
+
+<a class="line-sd" style=`font-family: "${font}";` href={href} target={target}>
+  {font === "JetBrains Mono Semibold" ? null : <div class="background">{text.replace(/[^:!\.\s]/g, font === "DSEG7C" ? "8" : "~")}</div>}
+  <div class="text">{text}</div>
+</a>
+
+<style>
+  .line-sd {
+    display: grid;
+    width: fit-content;
+    color: black
+  }
+
+  .line-sd::selection, .line-sd *::selection {
+    background-color: transparent;
+  }
+
+  .line-sd * {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .line-sd .background {
+    color: #00000040
+  }
+</style>

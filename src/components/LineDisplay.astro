@@ -1,0 +1,33 @@
+---
+interface Props {
+  text: string,
+  font: "JetBrains Mono Semibold" | "DSEG7C" | "DSEG14C"
+}
+
+const { text, font } = Astro.props
+---
+
+<div class="line-sd" style=`font-family: "${font}";`>
+  {font === "JetBrains Mono Semibold" ? null : <div class="background">{text.replace(/[^:!\.\s]/g, font === "DSEG7C" ? "8" : "~")}</div>}
+  <div class="text">{text}</div>
+</div>
+
+<style>
+  .line-sd {
+    display: grid;
+    width: fit-content
+  }
+
+  .line-sd::selection, .line-sd *::selection {
+    background-color: transparent;
+  }
+
+  .line-sd * {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .line-sd .background {
+    color: #00000040
+  }
+</style>
