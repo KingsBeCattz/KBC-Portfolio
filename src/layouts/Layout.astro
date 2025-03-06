@@ -1,3 +1,7 @@
+---
+import Analytics from "@vercel/analytics/astro";
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -8,6 +12,7 @@
 		<title>KingBCats</title>
 	</head>
 	<body>
+		<Analytics />
 		<slot />
 	</body>
 </html>
